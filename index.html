@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tests</title>
+</head>
+<body>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+        body {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+    <h1>API Tests</h1>
+    <p>Tests de l'API v1 d'Umbra</p>
+
+    <button onclick="LaunchApp(2)">Click Me!</button>
+    
+    <script>
+        function LaunchApp(id) {
+            fetch('http://localhost:5000/api/v1/game/' + id + '/open')
+            .then(response => response.json())
+            .then(data => console.log(data[0]));
+        }
+    </script>
+</body>
+</html>
