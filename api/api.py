@@ -36,10 +36,16 @@ def dict_factory(cursor, row):
         d[col[0]] = row[idx]
     return d
 
+"""
+Error 404
+"""
 @app.errorhandler(404)
 def page_not_found(e):
     return "<h1>404</h1><p>The resource could not be found.</p>", 404
 
+"""
+Returns all games
+"""
 @app.route('/api/v1/games', methods=['GET'])
 def get_all():
     query = "SELECT * FROM games"
@@ -56,6 +62,9 @@ def get_all():
     else:
         return page_not_found(404)
 
+"""
+Returns a game with the specified ID
+"""
 @app.route('/api/v1/games/<int:id>', methods=['GET'])
 def get_with_id(id):
     query = "SELECT * FROM games WHERE "
@@ -77,6 +86,9 @@ def get_with_id(id):
     else:
         return page_not_found(404)
 
+"""
+Opens the game with the specified ID
+"""
 @app.route('/api/v1/games/<int:id>/open', methods=['GET'])
 def open_with_id(id):
     query = "SELECT * FROM games WHERE "
@@ -101,6 +113,9 @@ def open_with_id(id):
     else:
         return page_not_found(404)
 
+"""
+Returns a specified column from a specified ID
+"""
 @app.route('/api/v1/games/<int:id>/<string:column>', methods=['GET'])
 def get_column_with_id(id, column):
     query = "SELECT " + column + " FROM games WHERE "
@@ -125,6 +140,9 @@ def get_column_with_id(id, column):
     else:
         return page_not_found(404)
 
+"""
+Replace the content of a column
+"""
 @app.route('/api/v1/games/<int:id>/<string:column>', methods=['PUT'])
 def update_column(id, column):
     if column != 'favorite':
@@ -159,33 +177,49 @@ def update_column(id, column):
     else:
         return toggle_favorite(id)
 
-@app.route('/api/v1/games/<int:id>/favorite', methods=['POST'])
-def toggle_favorite(id):
-    is_favorite_query = "SELECT favorite FROM games WHERE "
+"""
+Add a game from the favorites
+"""
+@app.route('/api/v1/games/<int:id>/favorite', methods=['PUT'])
+def add_favorite(id):
     to_filter = []
 
     if id:
-        is_favorite_query += 'game_id = ' + str(id) + ';'
         to_filter.append(id)
     if not (id):
         return page_not_found(404)
     conn = create_connection(DATABASE)
 
+    query = """ UPDATE games
+                SET favorite = 1
+                WHERE
+                    game_id = """ + str(id) + ";"
+
     if conn is not None:
         conn.row_factory = dict_factory
         cur = conn.cursor()
 
-        try:
-            results = cur.execute(is_favorite_query).fetchall()
-            result_int = int(results[0]['favorite'])
-            is_favorite = str(1 - result_int)
-        except Error:
-            return page_not_found(404)
+        results = cur.execute(query).fetchall()
+        cur.execute("COMMIT;")
+        return get_column_with_id(id, 'favorite')
     else:
         return page_not_found(404)
 
+"""
+Remove a game from the favorites
+"""
+@app.route('/api/v1/games/<int:id>/favorite', methods=['DELETE'])
+def remove_favorite(id):
+    to_filter = []
+
+    if id:
+        to_filter.append(id)
+    if not (id):
+        return page_not_found(404)
+    conn = create_connection(DATABASE)
+
     query = """ UPDATE games
-                SET favorite = """ + is_favorite + """
+                SET favorite = 0
                 WHERE
                     game_id = """ + str(id) + ";"
 
