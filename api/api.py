@@ -6,7 +6,7 @@ import sqlite3
 from sqlite3 import Error
 # import json
 
-DATABASE = r"umbra.db"
+DATABASE = r"/db/umbra.db"
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
