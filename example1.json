@@ -1,0 +1,62 @@
+{
+    "BackgroundImage": "2d9efebf-f12b-49ae-ac6a-83492a386fa2\\1916bb6b-866d-4eff-963b-5447129d273a.jpg",
+    "Description": "A single-player platformer about climbing a mountain. Battle your inner demons and climb through more than 250 devious stages to reach the summit. It won't be easy.",
+    "GenreIds": [
+      "bfc8790e-f83e-4bd3-883d-bd063a3c2fa8",
+      "d534f7e7-4d4e-4563-841f-8c3cd0f28a2b",
+      "3ab477a9-3705-423d-b6ae-7f00ce0cc930"
+    ],
+    "CoverImage": "2d9efebf-f12b-49ae-ac6a-83492a386fa2\\7a82167e-5867-4cf8-a19c-58b4794f793c.jpg",
+    "InstallDirectory": "C:\\Users\\amsttho\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application",
+    "GameImagePath": "C:\\Users\\amsttho\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+    "GameId": "216966db-7c1d-4bf8-ac32-dfa6f034d6ea",
+    "PublisherIds": [
+      "85f938e9-8541-409d-88be-d752c9258a8c"
+    ],
+    "DeveloperIds": [
+      "85f938e9-8541-409d-88be-d752c9258a8c"
+    ],
+    "ReleaseDate": "2018-01-25T00:00:00",
+    "FeatureIds": [
+      "87c8f675-4e91-40de-935a-33efb07488d4"
+    ],
+    "Links": [
+      {
+        "Name": "Official Website",
+        "Url": "http://www.celestegame.com"
+      },
+      {
+        "Name": "Steam",
+        "Url": "https://store.steampowered.com/app/504230"
+      },
+      {
+        "Name": "Wikipedia",
+        "Url": "https://en.wikipedia.org/wiki/Celeste_(video_game)"
+      },
+      {
+        "Name": "Twitter",
+        "Url": "https://twitter.com/celeste_game"
+      },
+      {
+        "Name": "Itch",
+        "Url": "https://mattmakesgames.itch.io/celeste"
+      },
+      {
+        "Name": "Wikia",
+        "Url": "https://celestegame.fandom.com/wiki/Celeste"
+      },
+      {
+        "Name": "Epic",
+        "Url": "https://www.epicgames.com/store/product/celeste"
+      }
+    ],
+    "IsInstalled": true,
+    "Added": "2021-06-07T13:22:57.7355045+02:00",
+    "Modified": "2021-06-07T13:26:12.2166217+02:00",
+    "SeriesId": "d189b87e-d0bd-4aea-aacb-86f9ea61b724",
+    "AgeRatingId": "43e944e2-b894-415a-9f06-1fffa237e538",
+    "CriticScore": 91,
+    "CommunityScore": 88,
+    "Id": "2d9efebf-f12b-49ae-ac6a-83492a386fa2",
+    "Name": "Celeste"
+  }
